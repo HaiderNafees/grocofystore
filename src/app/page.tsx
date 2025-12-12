@@ -7,6 +7,7 @@ import { PopularCategories } from "@/components/popular-categories";
 import { BestSellerSection } from "@/components/best-seller-section";
 import { PromoSection } from "@/components/promo-section";
 import { FeaturedBrands } from "@/components/featured-brands";
+import { AboutUsSection } from "@/components/about-us-section";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <BestSellerSection />
       <PromoSection />
       <FeaturedBrands />
+      <AboutUsSection />
     </>
   );
 }
