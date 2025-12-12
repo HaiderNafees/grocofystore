@@ -70,3 +70,14 @@ body {
     @apply bg-background text-foreground font-body;
   }
 }
+
+@layer utilities {
+  .hero-aspect-desktop {
+    padding-bottom: 31.25%;
+  }
+  @media screen and (max-width: 768px) {
+    .hero-aspect-mobile {
+      padding-bottom: 69.444%;
+    }
+  }
+}

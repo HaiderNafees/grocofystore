@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/lib/types";
 import { useCart } from "@/hooks/use-cart";
-import { Eye, ShoppingBag } from "lucide-react";
+import { Eye, ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -38,7 +38,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 <Eye className="h-4 w-4" />
              </Button>
              <Button size="icon" variant="secondary" className="rounded-full h-9 w-9" onClick={handleAddToCart}>
-                <ShoppingBag className="h-4 w-4" />
+                <ShoppingCart className="h-4 w-4" />
              </Button>
           </div>
         </div>

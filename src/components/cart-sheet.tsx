@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { ShoppingBag, Trash2, Plus, Minus } from "lucide-react";
+import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 
@@ -26,7 +26,7 @@ export function CartSheet({ children }: { children: ReactNode }) {
       <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
         <SheetHeader className="px-6 pt-6 pb-4">
           <SheetTitle className="flex items-center gap-2">
-            <ShoppingBag className="h-6 w-6" />
+            <ShoppingCart className="h-6 w-6" />
             <span>Shopping Cart ({itemCount})</span>
           </SheetTitle>
         </SheetHeader>
@@ -100,7 +100,7 @@ export function CartSheet({ children }: { children: ReactNode }) {
           </>
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-4 p-10 text-center">
-            <ShoppingBag className="h-16 w-16 text-muted-foreground" />
+            <ShoppingCart className="h-16 w-16 text-muted-foreground" />
             <h3 className="text-xl font-semibold">Your cart is empty</h3>
             <p className="text-muted-foreground">Looks like you haven't added anything to your cart yet.</p>
             <SheetTrigger asChild>
