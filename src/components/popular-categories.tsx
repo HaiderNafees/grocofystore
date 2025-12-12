@@ -11,13 +11,15 @@ const categories = [
     { name: "Smoking", imageId: "category-smoking" },
     { name: "Gifts", imageId: "category-gifts" },
     { name: "Perfumes", imageId: "category-perfumes" },
+    { name: "Delicacies", imageId: "category-delicacies" },
+    { name: "Drinkable", imageId: "category-drinkable" },
 ];
 
 export function PopularCategories() {
   return (
     <section className="container py-12">
       <h2 className="text-3xl font-serif mb-8 text-center">Popular Categories</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-6">
         {categories.map((category) => {
           const image = PlaceHolderImages.find((img) => img.id === category.imageId);
           return (
