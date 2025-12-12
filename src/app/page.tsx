@@ -3,11 +3,13 @@ import { ProductCard } from "@/components/product-card";
 import { products } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { PopularCategories } from "@/components/popular-categories";
 
 export default function Home() {
   return (
     <>
       <HeroCarousel />
+      <PopularCategories />
       <div className="container py-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-semibold tracking-wide">New in store</h2>

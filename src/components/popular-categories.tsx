@@ -1,0 +1,43 @@
+import Image from "next/image";
+import Link from "next/link";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+
+const categories = [
+    { name: "Eatables", imageId: "category-eatables" },
+    { name: "Personal Care", imageId: "category-personal-care" },
+    { name: "Beauty", imageId: "category-beauty" },
+    { name: "Life Style", imageId: "category-lifestyle" },
+    { name: "Altitude", imageId: "category-altitude" },
+    { name: "Smoking", imageId: "category-smoking" },
+    { name: "Gifts", imageId: "category-gifts" },
+    { name: "Perfumes", imageId: "category-perfumes" },
+];
+
+export function PopularCategories() {
+  return (
+    <section className="container py-12">
+      <h2 className="text-3xl font-serif mb-8 text-center">Popular Categories</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
+        {categories.map((category) => {
+          const image = PlaceHolderImages.find((img) => img.id === category.imageId);
+          return (
+            <Link href="#" key={category.name} className="group flex flex-col items-center gap-3">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
+                {image && (
+                  <Image
+                    src={image.imageUrl}
+                    alt={category.name}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={image.imageHint}
+                  />
+                )}
+              </div>
+              <span className="text-sm font-medium text-center">{category.name}</span>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

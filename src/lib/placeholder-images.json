@@ -65,6 +65,54 @@
       "description": "Black Sunglasses",
       "imageUrl": "https://images.unsplash.com/photo-1732139637065-1088495050db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxibGFjayUyMHN1bmdsYXNzZXN8ZW58MHx8fHwxNzY1NDgxNTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "black sunglasses"
+    },
+    {
+      "id": "category-eatables",
+      "description": "A collection of various food items and snacks",
+      "imageUrl": "https://images.unsplash.com/photo-1504855101244-34edfbd4b861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbmFja3MlMjBjaG9jb2xhdGV8ZW58MHx8fHwxNzY1NTEyMjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "snacks chocolate"
+    },
+    {
+      "id": "category-personal-care",
+      "description": "A collection of personal care products",
+      "imageUrl": "https://images.unsplash.com/photo-1679394270597-e90694d70350?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxza2luY2FyZSUyMHByb2R1Y3RzfGVufDB8fHx8MTc2NTQzNzg0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "skincare products"
+    },
+    {
+      "id": "category-beauty",
+      "description": "A collection of beauty and makeup products",
+      "imageUrl": "https://images.unsplash.com/photo-1627260125392-af975289f53f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYWtldXAlMjBjb3NtZXRpY3N8ZW58MHx8fHwxNzY1NTEyMjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "makeup cosmetics"
+    },
+    {
+      "id": "category-lifestyle",
+      "description": "A collection of lifestyle items",
+      "imageUrl": "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aG9tZSUyMGRlY29yfGVufDB8fHx8MTc2NTUxMjI2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "home decor"
+    },
+    {
+      "id": "category-altitude",
+      "description": "A travel mug",
+      "imageUrl": "https://images.unsplash.com/photo-1597211472292-57cad400aa9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0cmF2ZWwlMjBtdWd8ZW58MHx8fHwxNzY1NDI3NzA4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "travel mug"
+    },
+    {
+      "id": "category-smoking",
+      "description": "A vape device",
+      "imageUrl": "https://images.unsplash.com/photo-1651138424090-f0b3f3597101?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2YXBlJTIwZGV2aWNlfGVufDB8fHx8MTc2NTUxMjI2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vape device"
+    },
+    {
+      "id": "category-gifts",
+      "description": "A gift basket",
+      "imageUrl": "https://images.unsplash.com/photo-1508899203029-1c9eb493c9bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnaWZ0JTIwYmFza2V0fGVufDB8fHx8MTc2NTUwMDYzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gift basket"
+    },
+    {
+      "id": "category-perfumes",
+      "description": "A collection of perfume bottles",
+      "imageUrl": "https://images.unsplash.com/photo-1618994492420-b4f4d6b4890c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJmdW1lJTIwYm90dGxlc3xlbnwwfHx8fDE3NjU0NjgxNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "perfume bottles"
     }
   ]
 }
