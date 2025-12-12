@@ -8,6 +8,7 @@ import { Logo } from '@/components/icons';
 import { useCart } from '@/hooks/use-cart';
 import { CartSheet } from './cart-sheet';
 import { Input } from '@/components/ui/input';
+import { useUser } from '@/firebase';
 
 const navLinks = [
     { href: '#', label: 'Shop' },
@@ -17,6 +18,7 @@ const navLinks = [
 
 export function Header() {
   const { itemCount } = useCart();
+  const { user, loading } = useUser();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
@@ -77,10 +79,12 @@ export function Header() {
                 <Search className="h-5 w-5" />
                 <span className="sr-only">Search</span>
             </Button>
-            <Button variant="ghost" className="flex text-sm font-normal">
-                <User className="h-5 w-5 md:mr-2" />
-                <span className="hidden md:inline">ACCOUNT</span>
-            </Button>
+            <Link href={user ? '/account' : '/login'} passHref>
+              <Button variant="ghost" className="flex text-sm font-normal">
+                  <User className="h-5 w-5 md:mr-2" />
+                  <span className="hidden md:inline">ACCOUNT</span>
+              </Button>
+            </Link>
             <CartSheet>
                 <Button variant="ghost" className="relative flex text-sm font-normal">
                     <ShoppingCart className="h-5 w-5 md:mr-2" />
