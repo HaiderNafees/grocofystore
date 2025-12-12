@@ -19,13 +19,40 @@ interface AuthContextType {
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const ADMIN_EMAIL = 'admin@grocofy.com';
+const ADMIN_EMAIL = 'admin@store.com';
+const ADMIN_PASSWORD = 'Admin7989';
+
+const initializeUsers = () => {
+    try {
+        if (typeof window !== 'undefined') {
+            const storedUsers = localStorage.getItem('users');
+            if (storedUsers) {
+                const users = JSON.parse(storedUsers);
+                if (!users[ADMIN_EMAIL]) {
+                    users[ADMIN_EMAIL] = { password: ADMIN_PASSWORD };
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+                return users;
+            } else {
+                const initialUsers = {
+                    [ADMIN_EMAIL]: { password: ADMIN_PASSWORD }
+                };
+                localStorage.setItem('users', JSON.stringify(initialUsers));
+                return initialUsers;
+            }
+        }
+    } catch (error) {
+        console.error("Failed to initialize users in localStorage", error);
+    }
+    return {};
+}
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    initializeUsers();
     try {
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
