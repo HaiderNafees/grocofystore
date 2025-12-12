@@ -8,6 +8,7 @@ import { BestSellerSection } from "@/components/best-seller-section";
 import { PromoSection } from "@/components/promo-section";
 import { FeaturedBrands } from "@/components/featured-brands";
 import { AboutUsSection } from "@/components/about-us-section";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
       <PromoSection />
       <FeaturedBrands />
       <AboutUsSection />
+      <NewsletterSignup />
     </>
   );
 }
