@@ -35,7 +35,7 @@ export function HeroCarousel() {
                   src={image.imageUrl}
                   alt={image.description}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   priority={index === 0}
                   data-ai-hint={image.imageHint}
                 />
