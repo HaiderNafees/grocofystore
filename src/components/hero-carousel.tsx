@@ -9,7 +9,6 @@ import {
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
-import { cn } from "@/lib/utils";
 
 const heroImages = PlaceHolderImages.filter(img => img.id.startsWith("hero-"));
 
@@ -36,7 +35,7 @@ export function HeroCarousel() {
                   src={image.imageUrl}
                   alt={image.description}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   priority={index === 0}
                   data-ai-hint={image.imageHint}
                 />
