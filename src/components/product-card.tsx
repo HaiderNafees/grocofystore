@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/lib/types";
@@ -11,21 +10,29 @@ import { Badge } from "@/components/ui/badge";
 
 interface ProductCardProps {
   product: Product;
+  onView?: (product: Product) => void;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onView }: ProductCardProps) {
   const { addItem } = useCart();
 
   const handleAddToCart = () => {
     if (product.soldOut) return;
     addItem(product);
   };
+
+  const handleViewClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if(onView) {
+      onView(product);
+    }
+  };
   
   return (
     <Card className="group overflow-hidden relative border-none shadow-none rounded-none transition-all duration-300">
       <CardContent className="p-0">
         <div className="relative aspect-[1/1] overflow-hidden bg-gray-100">
-          <Link href={`/products/${product.id}`}>
+          <a href="#" onClick={handleViewClick}>
             <Image
               src={product.image}
               alt={product.name}
@@ -34,7 +41,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className="object-contain transition-transform duration-300 group-hover:scale-105"
               data-ai-hint={product.imageHint}
             />
-          </Link>
+          </a>
           {product.isNew && (
             <Badge variant="secondary" className="absolute bottom-2 left-2 bg-white text-black rounded-md text-xs">NEW</Badge>
           )}
@@ -43,11 +50,9 @@ export function ProductCard({ product }: ProductCardProps) {
           )}
           {!product.soldOut && (
             <div className="absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-               <Link href={`/products/${product.id}`}>
-                <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500">
+                <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500" onClick={handleViewClick}>
                     <Search className="h-4 w-4" />
                 </Button>
-               </Link>
                <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500" onClick={handleAddToCart}>
                   <Plus className="h-4 w-4" />
                </Button>

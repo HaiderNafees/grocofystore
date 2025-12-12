@@ -1,7 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { ProductCard } from "@/components/product-card";
 import { products, bestSellers } from "@/lib/data";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { PopularCategories } from "@/components/popular-categories";
 import { BestSellerSection } from "@/components/best-seller-section";
@@ -9,8 +11,21 @@ import { PromoSection } from "@/components/promo-section";
 import { FeaturedBrands } from "@/components/featured-brands";
 import { AboutUsSection } from "@/components/about-us-section";
 import { NewsletterSignup } from "@/components/newsletter-signup";
+import { ProductDetail } from "@/components/product-detail";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import type { Product } from "@/lib/types";
 
 export default function Home() {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const handleProductView = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
+  const handleCloseDialog = () => {
+    setSelectedProduct(null);
+  };
+
   return (
     <>
       <HeroCarousel />
@@ -23,16 +38,26 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard 
+              key={product.id} 
+              product={product}
+              onView={() => handleProductView(product)}
+            />
           ))}
         </div>
       </div>
       <PopularCategories />
-      <BestSellerSection />
+      <BestSellerSection onViewProduct={handleProductView} />
       <PromoSection />
       <FeaturedBrands />
       <AboutUsSection />
       <NewsletterSignup />
+
+      <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && handleCloseDialog()}>
+        <DialogContent className="max-w-4xl p-0">
+          {selectedProduct && <ProductDetail product={selectedProduct} />}
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

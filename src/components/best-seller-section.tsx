@@ -1,8 +1,13 @@
 import { ProductCard } from "@/components/product-card";
 import { bestSellers } from "@/lib/data";
+import type { Product } from "@/lib/types";
 import Link from "next/link";
 
-export function BestSellerSection() {
+interface BestSellerSectionProps {
+  onViewProduct: (product: Product) => void;
+}
+
+export function BestSellerSection({ onViewProduct }: BestSellerSectionProps) {
   return (
     <section className="container py-12">
       <div className="flex justify-between items-center mb-8">
@@ -13,7 +18,7 @@ export function BestSellerSection() {
       </div>
       <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
         {bestSellers.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} onView={onViewProduct} />
         ))}
       </div>
     </section>
