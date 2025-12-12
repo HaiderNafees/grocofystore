@@ -54,7 +54,7 @@ export default function Home() {
       <NewsletterSignup />
 
       <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && handleCloseDialog()}>
-        <DialogContent className="max-w-4xl p-0">
+        <DialogContent className="max-w-3xl p-0">
           {selectedProduct && <ProductDetail product={selectedProduct} />}
         </DialogContent>
       </Dialog>
