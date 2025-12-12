@@ -19,7 +19,6 @@ const brandImages = PlaceHolderImages.filter((img) =>
 export function FeaturedBrands() {
   return (
     <section className="container py-12">
-      <h2 className="text-3xl font-serif mb-8 text-center">Featured Brands</h2>
       <Carousel
         className="w-full"
         opts={{
@@ -35,6 +34,13 @@ export function FeaturedBrands() {
           }),
         ]}
       >
+        <div className="flex justify-between items-center mb-8">
+            <h2 className="text-3xl font-serif text-center">Featured Brands</h2>
+            <div className="flex items-center gap-2">
+                <CarouselPrevious className="relative -left-0 -top-0 -translate-y-0" />
+                <CarouselNext className="relative -right-0 -top-0 -translate-y-0" />
+            </div>
+        </div>
         <CarouselContent className="-ml-4">
           {brandImages.map((image) => (
             <CarouselItem
@@ -57,8 +63,6 @@ export function FeaturedBrands() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden sm:flex" />
-        <CarouselNext className="hidden sm:flex" />
       </Carousel>
     </section>
   );
