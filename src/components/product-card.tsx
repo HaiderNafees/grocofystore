@@ -35,6 +35,9 @@ export function ProductCard({ product }: ProductCardProps) {
               data-ai-hint={product.imageHint}
             />
           </Link>
+          {product.isNew && (
+            <Badge variant="secondary" className="absolute bottom-2 left-2 bg-white text-black rounded-md text-xs">NEW</Badge>
+          )}
           {product.soldOut && (
               <Badge variant="secondary" className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-yellow-500 text-black rounded-md text-xs">SOLD OUT</Badge>
           )}

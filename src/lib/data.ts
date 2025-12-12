@@ -23,6 +23,7 @@ export const products: Product[] = [
     image: getImage('product-1').imageUrl,
     imageHint: 'gift basket christmas',
     category: 'Gifts',
+    isNew: true,
   },
   {
     id: 'prod-2',
@@ -31,6 +32,7 @@ export const products: Product[] = [
     image: getImage('product-2').imageUrl,
     imageHint: 'christmas basket',
     category: 'Gifts',
+    isNew: true,
   },
   {
     id: 'prod-3',
@@ -39,6 +41,7 @@ export const products: Product[] = [
     image: getImage('product-3').imageUrl,
     imageHint: 'holiday basket',
     category: 'Gifts',
+    isNew: true,
   },
   {
     id: 'prod-4',
@@ -47,6 +50,7 @@ export const products: Product[] = [
     image: getImage('product-4').imageUrl,
     imageHint: 'gift crate',
     category: 'Gifts',
+    isNew: true,
   },
   {
     id: 'prod-5',
@@ -55,6 +59,7 @@ export const products: Product[] = [
     image: getImage('product-5').imageUrl,
     imageHint: 'holiday crate',
     category: 'Gifts',
+    isNew: true,
   },
   {
     id: 'prod-6',
@@ -63,6 +68,7 @@ export const products: Product[] = [
     image: getImage('product-6').imageUrl,
     imageHint: getImage('product-6').imageHint,
     category: 'Accessories',
+    isNew: true,
   },
   {
     id: 'prod-7',
@@ -71,6 +77,7 @@ export const products: Product[] = [
     image: getImage('product-7').imageUrl,
     imageHint: getImage('product-7').imageHint,
     category: 'Homeware',
+    isNew: true,
   },
   {
     id: 'prod-8',
@@ -79,6 +86,7 @@ export const products: Product[] = [
     image: getImage('product-8').imageUrl,
     imageHint: getImage('product-8').imageHint,
     category: 'Accessories',
+    isNew: true,
   },
 ];
 
