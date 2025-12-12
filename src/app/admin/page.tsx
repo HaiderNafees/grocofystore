@@ -17,9 +17,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Button } from '@/components/ui/button';
 
 export default function AdminPage() {
-  const { user, loading } = useAuth();
+  const { user, loading, logout } = useAuth();
   const { products, loading: productsLoading } = useProducts();
   const [categoryFilter, setCategoryFilter] = useState('all');
   const router = useRouter();
@@ -29,6 +30,11 @@ export default function AdminPage() {
       router.push('/login');
     }
   }, [user, loading, router]);
+  
+  const handleSignOut = () => {
+    logout();
+    router.push('/');
+  };
 
   const categories = useMemo(() => {
     const allCategories = products.map(p => p.category);
@@ -58,6 +64,9 @@ export default function AdminPage() {
     <div className="container py-12">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Admin Panel</h1>
+        <Button onClick={handleSignOut} variant="destructive">
+          Sign Out
+        </Button>
       </div>
       <Tabs defaultValue="products" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
