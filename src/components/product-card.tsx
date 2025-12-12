@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <Card className="group overflow-hidden relative border-none shadow-none rounded-none transition-all duration-300">
       <CardContent className="p-0">
         <div className="relative aspect-[1/1] overflow-hidden bg-gray-100">
-          <Link href="#">
+          <Link href={`/products/${product.id}`}>
             <Image
               src={product.image}
               alt={product.name}
@@ -43,9 +43,11 @@ export function ProductCard({ product }: ProductCardProps) {
           )}
           {!product.soldOut && (
             <div className="absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-               <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500">
-                  <Search className="h-4 w-4" />
-               </Button>
+               <Link href={`/products/${product.id}`}>
+                <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500">
+                    <Search className="h-4 w-4" />
+                </Button>
+               </Link>
                <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500" onClick={handleAddToCart}>
                   <Plus className="h-4 w-4" />
                </Button>
