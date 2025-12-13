@@ -11,11 +11,16 @@ import { useCart } from '@/hooks/use-cart';
 import { useAuth } from '@/hooks/use-auth';
 import { CartSheet } from './cart-sheet';
 
-const navLinks = [
+const leftNavLinks = [
     { href: '/products', label: 'Shop' },
     { href: '#', label: 'About Us' },
+];
+
+const rightNavLinks = [
     { href: '#', label: 'Contact Us' },
 ];
+
+const mobileNavLinks = [...leftNavLinks, ...rightNavLinks];
 
 export function Header() {
   const { itemCount } = useCart();
@@ -31,9 +36,9 @@ export function Header() {
             </Link>
         </div>
         
-        <div className="hidden lg:flex flex-1 items-center justify-between">
-             <div className="flex items-center gap-8">
-                {navLinks.map((link) => (
+        <div className="hidden lg:flex w-full items-center justify-between">
+            <nav className="flex items-center gap-8">
+                {leftNavLinks.map((link) => (
                     <Link
                         key={link.label}
                         href={link.href}
@@ -43,7 +48,7 @@ export function Header() {
                         {link.label}
                     </Link>
                 ))}
-            </div>
+            </nav>
 
             <div className="absolute left-1/2 -translate-x-1/2">
                 <Link href="/" className="flex-shrink-0">
@@ -52,7 +57,17 @@ export function Header() {
                 </Link>
             </div>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
+                {rightNavLinks.map((link) => (
+                    <Link
+                        key={link.label}
+                        href={link.href}
+                        className="font-sans uppercase tracking-wider text-gray-700"
+                        style={{ fontSize: '14px' }}
+                    >
+                        {link.label}
+                    </Link>
+                ))}
                 <div className="w-full max-w-sm relative">
                     <Input
                         type="search"
@@ -113,7 +128,7 @@ export function Header() {
                 <SheetContent side="right" className="w-full max-w-xs p-0">
                 <div className="p-6 h-full overflow-y-auto">
                     <nav className="flex flex-col items-start gap-y-2 pt-12">
-                    {navLinks.map((link) => (
+                    {mobileNavLinks.map((link) => (
                         <Link
                         key={link.label}
                         href={link.href}
