@@ -23,10 +23,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center">
 
-        {/* Logo - Left */}
-        <div className="flex items-center">
+        {/* Logo - Left on mobile */}
+        <div className="flex items-center lg:flex-1">
           <Link href="/" className="flex-shrink-0">
             <Logo />
             <span className="sr-only">Grocofy Home</span>
@@ -40,7 +40,7 @@ export function Header() {
                   <Link
                       key={link.label}
                       href={link.href}
-                      className="font-sans text-base text-muted-foreground hover:text-foreground transition-colors"
+                      className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                       {link.label}
                   </Link>
@@ -49,17 +49,13 @@ export function Header() {
         </div>
         
         {/* Icons and Mobile Menu - Right */}
-        <div className="flex items-center justify-end gap-1">
-            <div className="hidden lg:flex relative w-full max-w-xs">
-                <Input placeholder="Search..." className="w-full pr-10 border-gray-300 rounded-full focus:ring-0 focus:border-black" />
-                <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            </div>
-            <Button variant="ghost" size="icon" className="lg:hidden">
+        <div className="flex items-center justify-end gap-1 lg:flex-1">
+            <Button variant="ghost" size="icon">
                 <Search className="h-5 w-5" />
                 <span className="sr-only">Search</span>
             </Button>
             <Link href={user ? '/account' : '/login'} passHref>
-              <Button variant="ghost" size="icon" className="hidden md:flex">
+              <Button variant="ghost" size="icon">
                   <User className="h-5 w-5" />
                   <span className="sr-only">Account</span>
               </Button>
@@ -92,7 +88,7 @@ export function Header() {
                             <Link
                             key={link.label}
                             href={link.href}
-                            className="py-2 text-base font-normal uppercase tracking-wider text-gray-700"
+                            className="py-2 text-sm font-normal uppercase tracking-wider text-gray-700"
                             >
                             {link.label}
                             </Link>
