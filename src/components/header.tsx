@@ -24,28 +24,75 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 items-center">
-        {/* Logo */}
-        <div className="lg:flex-1 flex justify-start">
-          <Link href="/" className="flex-shrink-0">
-            <Logo />
-            <span className="sr-only">Grocofy Home</span>
-          </Link>
+        <div className="lg:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-full max-w-xs p-0">
+              <div className="p-6 h-full overflow-y-auto">
+                <nav className="flex flex-col items-start gap-y-2 pt-12">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="py-2 font-sans uppercase tracking-wider text-gray-700"
+                      style={{ fontSize: '14px' }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+        
+        <div className="flex-1 flex justify-start lg:justify-center">
+            <div className="hidden lg:flex flex-1 items-center gap-8">
+                 {navLinks.slice(0, 2).map((link) => (
+                    <Link
+                        key={link.label}
+                        href={link.href}
+                        className="py-2 font-sans uppercase tracking-wider text-gray-700"
+                        style={{ fontSize: '14px' }}
+                    >
+                        {link.label}
+                    </Link>
+                ))}
+            </div>
+            
+            <Link href="/" className="flex-shrink-0">
+                <Logo />
+                <span className="sr-only">Grocofy Home</span>
+            </Link>
+
+            <div className="hidden lg:flex flex-1 items-center justify-end gap-8">
+                 {navLinks.slice(2).map((link) => (
+                    <Link
+                        key={link.label}
+                        href={link.href}
+                        className="py-2 font-sans uppercase tracking-wider text-gray-700"
+                        style={{ fontSize: '14px' }}
+                    >
+                        {link.label}
+                    </Link>
+                ))}
+            </div>
         </div>
 
-        {/* Desktop Search Bar */}
-        <div className="hidden lg:flex flex-1 justify-center items-center px-8">
-            <div className="w-full max-w-sm relative">
+        <div className="flex items-center justify-end gap-1">
+          <div className="hidden lg:block w-full max-w-sm relative">
                 <Input
                     type="search"
                     placeholder="Search..."
-                    className="w-full rounded-full"
+                    className="w-full rounded-none border-0 border-b focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
                 <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             </div>
-        </div>
-        
-        {/* Icons and Mobile Menu */}
-        <div className="flex flex-1 items-center justify-end gap-1">
           <Button variant="ghost" size="icon" className="lg:hidden">
             <Search className="h-5 w-5" />
             <span className="sr-only">Search</span>
@@ -67,34 +114,6 @@ export function Header() {
               <span className="sr-only">Shopping Cart</span>
             </Button>
           </CartSheet>
-
-          {/* Hamburger Menu - Mobile */}
-          <div className="flex items-center lg:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-full max-w-xs p-0">
-                <div className="p-6 h-full overflow-y-auto">
-                  <nav className="flex flex-col items-start gap-y-2 pt-12">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        className="py-2 text-sm font-normal uppercase tracking-wider text-gray-700 font-sans"
-                        style={{ fontSize: '14px' }}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
         </div>
       </div>
     </header>
