@@ -27,42 +27,39 @@ export function PopularCategories() {
       </div>
 
       {/* Mobile: Vertical scrolling grid */}
-      <div className="lg:hidden">
-        <ScrollArea className="w-full">
-          <div className="px-4">
-            <div className="grid grid-cols-2 gap-6 py-4">
-              {categories.map((category) => {
-                const image = PlaceHolderImages.find(
-                  (img) => img.id === category.imageId
-                );
-                return (
-                  <Link
-                    href={`/products?category=${encodeURIComponent(category.name)}`}
-                    key={category.name}
-                    className="group flex flex-col items-center gap-3"
-                  >
-                    <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
-                      {image && (
-                        <Image
-                          src={image.imageUrl}
-                          alt={category.name}
-                          fill
-                          className="object-cover"
-                          sizes="40vw"
-                          data-ai-hint={image.imageHint}
-                        />
-                      )}
-                    </div>
-                    <span className="text-sm font-medium text-center whitespace-normal">
-                      {category.name}
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
+      <div className="block lg:hidden">
+        <div className="px-4 py-6 max-h-96 overflow-y-auto">
+          <div className="grid grid-cols-2 gap-6">
+            {categories.map((category) => {
+              const image = PlaceHolderImages.find(
+                (img) => img.id === category.imageId
+              );
+              return (
+                <Link
+                  href={`/products?category=${encodeURIComponent(category.name)}`}
+                  key={category.name}
+                  className="group flex flex-col items-center gap-3"
+                >
+                  <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
+                    {image && (
+                      <Image
+                        src={image.imageUrl}
+                        alt={category.name}
+                        fill
+                        className="object-cover"
+                        sizes="40vw"
+                        data-ai-hint={image.imageHint}
+                      />
+                    )}
+                  </div>
+                  <span className="text-xs font-medium text-center whitespace-normal">
+                    {category.name}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
-          <ScrollBar orientation="vertical" />
-        </ScrollArea>
+        </div>
       </div>
       
       {/* Desktop: Centered grid */}

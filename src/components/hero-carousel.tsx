@@ -60,11 +60,15 @@ export function HeroCarousel() {
                   data-ai-hint={image.imageHint}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-end p-8 bg-black/20">
-                  <Link href={getHeroRoute(image.id)}>
+                  <Link href={getHeroRoute(image.id)} className="absolute bottom-[10%] left-1/2 -translate-x-1/2">
                     <Button 
                       variant="secondary" 
                       size="lg" 
-                      className="absolute bottom-[10%] left-1/2 -translate-x-1/2 rounded-md font-semibold"
+                      className="rounded-md font-semibold hover:bg-primary hover:text-primary-foreground transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = getHeroRoute(image.id);
+                      }}
                     >
                       Shop Now
                     </Button>
