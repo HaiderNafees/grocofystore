@@ -24,24 +24,25 @@ const ADMIN_EMAIL = 'admin@store.com';
 const ADMIN_PASSWORD = 'Admin7989';
 const ADMIN_NAME = 'Admin User';
 
+const isClient = typeof window !== 'undefined';
+
 const initializeUsers = () => {
+    if (!isClient) return {};
     try {
-        if (typeof window !== 'undefined') {
-            const storedUsers = localStorage.getItem('users');
-            if (storedUsers) {
-                const users = JSON.parse(storedUsers);
-                if (!users[ADMIN_EMAIL]) {
-                    users[ADMIN_EMAIL] = { password: ADMIN_PASSWORD, name: ADMIN_NAME };
-                    localStorage.setItem('users', JSON.stringify(users));
-                }
-                return users;
-            } else {
-                const initialUsers = {
-                    [ADMIN_EMAIL]: { password: ADMIN_PASSWORD, name: ADMIN_NAME }
-                };
-                localStorage.setItem('users', JSON.stringify(initialUsers));
-                return initialUsers;
+        const storedUsers = localStorage.getItem('users');
+        if (storedUsers) {
+            const users = JSON.parse(storedUsers);
+            if (!users[ADMIN_EMAIL]) {
+                users[ADMIN_EMAIL] = { password: ADMIN_PASSWORD, name: ADMIN_NAME };
+                localStorage.setItem('users', JSON.stringify(users));
             }
+            return users;
+        } else {
+            const initialUsers = {
+                [ADMIN_EMAIL]: { password: ADMIN_PASSWORD, name: ADMIN_NAME }
+            };
+            localStorage.setItem('users', JSON.stringify(initialUsers));
+            return initialUsers;
         }
     } catch (error) {
         console.error("Failed to initialize users in localStorage", error);
@@ -54,22 +55,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    initializeUsers();
-    try {
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
+    // Ensure this runs only on the client
+    if (isClient) {
+      initializeUsers();
+      try {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+          setUser(JSON.parse(storedUser));
+        }
+      } catch (error) {
+        console.error("Failed to parse user from localStorage", error);
+        setUser(null);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Failed to parse user from localStorage", error);
-      setUser(null);
-    } finally {
-      setLoading(false);
+    } else {
+        setLoading(false);
     }
   }, []);
 
   const login = async (email: string, pass: string): Promise<User | null> => {
     return new Promise((resolve) => {
+        if (!isClient) return resolve(null);
         try {
             const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
             const userData = storedUsers[email];
@@ -94,6 +101,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signup = async (name: string, email: string, pass: string): Promise<User | null> => {
      return new Promise((resolve) => {
+        if (!isClient) return resolve(null);
         try {
             const storedUsers = JSON.parse(localStorage.getItem('users') || '{}');
             if (storedUsers[email]) {
@@ -115,6 +123,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = () => {
+    if (!isClient) return;
     try {
       localStorage.removeItem('user');
     } catch (error) {
