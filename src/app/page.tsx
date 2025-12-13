@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { ProductCard } from "@/components/product-card";
 import { useProducts } from '@/hooks/use-products';
@@ -19,8 +19,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isClient, setIsClient] = useState(false);
   const { products, loading } = useProducts();
   const newInStoreProducts = products.filter(p => p.isNew).slice(0, 10);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleProductView = (product: Product) => {
     setSelectedProduct(product);
@@ -89,11 +94,13 @@ export default function Home() {
       <AboutUsSection />
       <NewsletterSignup />
 
-      <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && handleCloseDialog()}>
-        <DialogContent className="max-w-4xl p-0">
-          {selectedProduct && <ProductDetail product={selectedProduct} />}
-        </DialogContent>
-      </Dialog>
+      {isClient && (
+        <Dialog open={!!selectedProduct} onOpenChange={(open) => !open && handleCloseDialog()}>
+          <DialogContent className="max-w-4xl p-0">
+            {selectedProduct && <ProductDetail product={selectedProduct} />}
+          </DialogContent>
+        </Dialog>
+      )}
     </>
   );
 }

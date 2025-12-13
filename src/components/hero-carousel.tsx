@@ -9,10 +9,17 @@ import {
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
+import { useState, useEffect } from "react";
 
 const heroImages = PlaceHolderImages.filter(img => img.id.startsWith("hero-"));
 
 export function HeroCarousel() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section className="w-full">
       <Carousel
@@ -20,12 +27,12 @@ export function HeroCarousel() {
         opts={{
           loop: true,
         }}
-        plugins={[
+        plugins={isClient ? [
           Autoplay({
             delay: 5000,
             stopOnInteraction: true,
           }),
-        ]}
+        ] : []}
       >
         <CarouselContent>
           {heroImages.map((image, index) => (
