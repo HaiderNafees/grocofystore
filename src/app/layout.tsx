@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   description: 'A clone of the SHAMS website built with Next.js and Firebase Studio',
   icons: {
     icon: [
-      { url: 'https://iili.io/fY3vX6J.png', type: 'image/png' },
+      { url: 'https://iili.io/fYFSwtS.png', type: 'image/png' },
     ],
     shortcut: [
-      { url: 'https://iili.io/fY3vX6J.png', type: 'image/png' },
+      { url: 'https://iili.io/fYFSwtS.png', type: 'image/png' },
     ],
     apple: [
-      { url: 'https://iili.io/fY3vX6J.png', type: 'image/png' },
+      { url: 'https://iili.io/fYFSwtS.png', type: 'image/png' },
     ],
   },
 };

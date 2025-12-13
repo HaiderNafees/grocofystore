@@ -5,20 +5,20 @@ import type { Product } from './types';
 // The app will use localStorage as the primary source of truth.
 export const products: Product[] = [
   {
-    id: 'pringles-cheesy-cheese-1',
-    name: 'Pringles Snacks Cheesy Cheese — 165g',
+    id: 'ritter-sport-marzipan-1',
+    name: 'Ritter Sport Marzipan Dark Chocolate, Fresh from Germany, Chocolate with Marzipan Filling, Ritter Sport Chocolates in Colorful Variety, 3.5 Ounce (Pack of 12)',
     price: 945,
-    image: 'https://www.shopatshams.com/cdn/shop/products/PringlesSnacksCheesyCheese-165g.jpg?v=1658498424',
-    imageHint: 'pringles cheesy cheese',
+    image: 'https://iili.io/fYK3fZN.png',
+    imageHint: 'ritter sport marzipan chocolate',
     category: 'Snacks',
     isNew: true,
   },
   {
-    id: 'pringles-hot-spicy-2',
-    name: 'Pringles Snacks Hot & Spicy — 165g',
+    id: 'ritter-sport-kakao-mousse-2',
+    name: 'Ritter Sport Kakao (Cocoa) Mousse Chocolate - Pack of 3',
     price: 945,
-    image: 'https://www.shopatshams.com/cdn/shop/products/PringlesSnacksHot_Spicy-165g.jpg?v=1658498471',
-    imageHint: 'pringles hot spicy',
+    image: 'https://iili.io/fYKB46B.png',
+    imageHint: 'ritter sport kakao mousse chocolate',
     category: 'Snacks',
     isNew: true,
   },
