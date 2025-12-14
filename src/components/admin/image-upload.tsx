@@ -89,10 +89,10 @@ export function ImageUpload({ value, onChange, placeholder = "Product image" }: 
   return (
     <div className="space-y-4">
       <Card className="border-dashed border-2 border-gray-300 hover:border-gray-400 transition-colors">
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           {preview ? (
             <div className="space-y-4">
-              <div className="relative aspect-square max-w-xs mx-auto">
+              <div className="relative aspect-square max-w-xs mx-auto sm:max-w-sm">
                 <img
                   src={preview}
                   alt={placeholder}
@@ -133,6 +133,7 @@ export function ImageUpload({ value, onChange, placeholder = "Product image" }: 
                 variant="outline"
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isUploading}
+                className="text-xs sm:text-sm"
               >
                 <Upload className="h-4 w-4 mr-2" />
                 {isUploading ? "Uploading..." : "Choose file"}
@@ -144,17 +145,19 @@ export function ImageUpload({ value, onChange, placeholder = "Product image" }: 
 
       <div className="space-y-2">
         <label className="text-sm font-medium">Or enter image URL</label>
-        <div className="flex space-x-2">
+        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
           <Input
             placeholder="https://picsum.photos/seed/product/600/600"
             value={value || ""}
             onChange={(e) => handleUrlChange(e.target.value)}
+            className="text-sm"
           />
           <Button
             type="button"
             variant="outline"
             onClick={() => fileInputRef.current?.click()}
             disabled={isUploading}
+            className="sm:w-auto"
           >
             <Upload className="h-4 w-4" />
           </Button>

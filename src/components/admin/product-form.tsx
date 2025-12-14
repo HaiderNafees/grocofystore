@@ -94,118 +94,130 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Product Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Pringles Original" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="price"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Price</FormLabel>
-              <FormControl>
-                <Input type="number" placeholder="945" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="category"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Category</FormLabel>
-              <FormControl>
-                <Input placeholder="Snacks" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="image"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Product Image</FormLabel>
-              <FormControl>
-                <ImageUpload
-                  value={field.value}
-                  onChange={field.onChange}
-                  placeholder={form.watch("name") || "Product image"}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="imageHint"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Image Hint (Optional)</FormLabel>
-              <FormControl>
-                <Input placeholder="product image" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className="flex items-center space-x-4">
-            <FormField
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Product Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Pringles Original" {...field} className="w-full" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="price"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Price</FormLabel>
+                <FormControl>
+                  <Input type="number" placeholder="945" {...field} className="w-full" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <FormField
+            control={form.control}
+            name="category"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Category</FormLabel>
+                <FormControl>
+                  <Input placeholder="Snacks" {...field} className="w-full" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="imageHint"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Image Hint (Optional)</FormLabel>
+                <FormControl>
+                  <Input placeholder="product image" {...field} className="w-full" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="w-full">
+          <FormField
+            control={form.control}
+            name="image"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Product Image</FormLabel>
+                <FormControl>
+                  <ImageUpload
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder={form.watch("name") || "Product image"}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <FormField
             control={form.control}
             name="isNew"
             render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                 <FormControl>
-                    <Checkbox
+                  <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
-                    />
+                  />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                    <FormLabel>New Product</FormLabel>
+                  <FormLabel>New Product</FormLabel>
                 </div>
-                </FormItem>
+              </FormItem>
             )}
-            />
-            <FormField
+          />
+          <FormField
             control={form.control}
             name="soldOut"
             render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                 <FormControl>
-                    <Checkbox
+                  <Checkbox
                     checked={field.value}
                     onCheckedChange={field.onChange}
-                    />
+                  />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                    <FormLabel>Sold Out</FormLabel>
+                  <FormLabel>Sold Out</FormLabel>
                 </div>
-                </FormItem>
+              </FormItem>
             )}
-            />
+          />
         </div>
-        <Button type="submit" className="w-full">
-          {productToEdit ? 'Update Product' : 'Add Product'}
-        </Button>
-        {productToEdit && onFinishEditing && (
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Button type="submit" className="w-full">
+            {productToEdit ? 'Update Product' : 'Add Product'}
+          </Button>
+          {productToEdit && onFinishEditing && (
             <Button variant="outline" className="w-full" onClick={onFinishEditing}>Cancel</Button>
-        )}
+          )}
+        </div>
       </form>
     </Form>
   );
