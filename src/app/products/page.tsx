@@ -1,7 +1,6 @@
-
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { ProductCard } from '@/components/product-card';
 import { useProducts } from '@/hooks/use-products';
@@ -10,7 +9,7 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import type { Product } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export default function AllProductsPage() {
+function ProductsContent() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { products, loading } = useProducts();
   const searchParams = useSearchParams();
@@ -43,12 +42,13 @@ export default function AllProductsPage() {
   return (
     <>
       <div className="container py-12">
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold tracking-tight">{pageTitle}</h1>
-          <p className="mt-2 text-muted-foreground">
-            {pageDescription}
+        <div className="flex justify-between items-center mb-10">
+          <h1 className="text-4xl font-serif">{pageTitle}</h1>
+          <p className="text-muted-foreground">
+            {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
           </p>
         </div>
+
         {loading ? (
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
                 {Array.from({ length: 10 }).map((_, i) => (
@@ -76,14 +76,40 @@ export default function AllProductsPage() {
         )}
       </div>
 
-      <Dialog
-        open={!!selectedProduct}
-        onOpenChange={(open) => !open && handleCloseDialog()}
-      >
-        <DialogContent className="max-w-4xl p-0">
-          {selectedProduct && <ProductDetail product={selectedProduct} />}
+      <Dialog open={!!selectedProduct} onOpenChange={handleCloseDialog}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedProduct && (
+            <ProductDetail 
+              product={selectedProduct} 
+              onClose={handleCloseDialog}
+            />
+          )}
         </DialogContent>
       </Dialog>
     </>
+  );
+}
+
+export default function AllProductsPage() {
+  return (
+    <Suspense fallback={
+      <div className="container py-12">
+        <div className="flex justify-between items-center mb-10">
+          <Skeleton className="h-12 w-48" />
+          <Skeleton className="h-6 w-24" />
+        </div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className="space-y-3">
+              <Skeleton className="aspect-square" />
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-5 w-1/2" />
+            </div>
+          ))}
+        </div>
+      </div>
+    }>
+      <ProductsContent />
+    </Suspense>
   );
 }
