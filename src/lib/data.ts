@@ -56,6 +56,7 @@ export const products: Product[] = [
     image: 'https://picsum.photos/seed/kurkure-naughty-tomato/600/600',
     imageHint: 'kurkure tomato',
     category: 'Snacks',
+    isNew: true,
   },
   {
     id: 'kurkure-masala-munch-7',
@@ -64,6 +65,7 @@ export const products: Product[] = [
     image: 'https://picsum.photos/seed/kurkure-masala-munch/600/600',
     imageHint: 'kurkure masala',
     category: 'Snacks',
+    isNew: true,
   },
   {
     id: 'kurkure-chutney-chaska-8',
@@ -72,6 +74,7 @@ export const products: Product[] = [
     image: 'https://picsum.photos/seed/kurkure-chutney-chaska/600/600',
     imageHint: 'kurkure chutney',
     category: 'Snacks',
+    isNew: true,
   },
   {
     id: 'kurkure-chilli-chatka-9',
@@ -80,6 +83,7 @@ export const products: Product[] = [
     image: 'https://picsum.photos/seed/kurkure-chilli-chatka/600/600',
     imageHint: 'kurkure chilli',
     category: 'Snacks',
+    isNew: true,
   },
   {
     id: 'lays-flamin-hot-10',
@@ -88,6 +92,7 @@ export const products: Product[] = [
     image: 'https://picsum.photos/seed/lays-flamin-hot/600/600',
     imageHint: 'lays flamin hot',
     category: 'Snacks',
+    isNew: true,
   },
   {
     id: 'lays-french-cheese-11',

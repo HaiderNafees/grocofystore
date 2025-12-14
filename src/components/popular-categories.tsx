@@ -37,11 +37,10 @@ export function PopularCategories() {
                 key={category.name}
                 className="group"
               >
-                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
+                <div className="bg-transparent rounded-xl shadow-none hover:shadow-none transition-all duration-300 overflow-hidden">
                   <div className="aspect-square relative flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full"></div>
                     {image && (
-                      <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                      <div className="relative w-20 h-20 rounded-full overflow-hidden border-0 shadow-none">
                         <Image
                           src={image.imageUrl}
                           alt={category.name}
@@ -78,11 +77,10 @@ export function PopularCategories() {
                 key={category.name}
                 className="group"
               >
-                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
+                <div className="bg-transparent rounded-xl shadow-none hover:shadow-none transition-all duration-300 overflow-hidden">
                   <div className="aspect-square relative flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full"></div>
                     {image && (
-                      <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                      <div className="relative w-24 h-24 rounded-full overflow-hidden border-0 shadow-none">
                         <Image
                           src={image.imageUrl}
                           alt={category.name}
@@ -119,11 +117,10 @@ export function PopularCategories() {
                 key={category.name}
                 className="group"
               >
-                <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20">
+                <div className="bg-transparent rounded-2xl shadow-none hover:shadow-none transition-all duration-300 overflow-hidden">
                   <div className="aspect-square relative flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full"></div>
                     {image && (
-                      <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-white shadow-md">
+                      <div className="relative w-28 h-28 rounded-full overflow-hidden border-0 shadow-none">
                         <Image
                           src={image.imageUrl}
                           alt={category.name}
