@@ -94,13 +94,13 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 w-full max-w-none">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="sm:col-span-2 lg:col-span-3">
                 <FormLabel>Product Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Pringles Original" {...field} className="w-full" />
@@ -122,9 +122,6 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
               </FormItem>
             )}
           />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
             name="category"
@@ -178,7 +175,7 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
             control={form.control}
             name="isNew"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-3 sm:p-4">
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -186,7 +183,7 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
                   />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                  <FormLabel>New Product</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">New Product</FormLabel>
                 </div>
               </FormItem>
             )}
@@ -195,7 +192,7 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
             control={form.control}
             name="soldOut"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-3 sm:p-4">
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -203,7 +200,7 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
                   />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                  <FormLabel>Sold Out</FormLabel>
+                  <FormLabel className="text-sm sm:text-base">Sold Out</FormLabel>
                 </div>
               </FormItem>
             )}

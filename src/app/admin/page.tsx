@@ -68,25 +68,25 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="container py-12">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Admin Panel</h1>
-        <Button onClick={handleSignOut} variant="destructive">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+        <h1 className="text-2xl sm:text-3xl font-bold">Admin Panel</h1>
+        <Button onClick={handleSignOut} variant="destructive" className="w-full sm:w-auto">
           Sign Out
         </Button>
       </div>
       <Tabs defaultValue="products" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="products">Manage Products</TabsTrigger>
-          <TabsTrigger value="add">Add New Product</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 mb-6 sm:mb-8">
+          <TabsTrigger value="products" className="text-sm sm:text-base">Manage Products</TabsTrigger>
+          <TabsTrigger value="add" className="text-sm sm:text-base">Add New Product</TabsTrigger>
         </TabsList>
         <TabsContent value="products">
-          <Card>
-            <CardHeader>
-              <CardTitle>All Products</CardTitle>
+          <Card className="w-full">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-lg sm:text-xl">All Products</CardTitle>
                <div className="pt-4">
                 <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                  <SelectTrigger className="w-[280px]">
+                  <SelectTrigger className="w-full sm:w-[280px]">
                     <SelectValue placeholder="Filter by category" />
                   </SelectTrigger>
                   <SelectContent>
