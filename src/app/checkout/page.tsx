@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/hooks/use-cart";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,14 +13,36 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export default function CheckoutPage() {
   const { items, totalPrice } = useCart();
+  const [isClient, setIsClient] = useState(false);
   const [shippingMethod, setShippingMethod] = useState("standard");
   const [paymentMethod, setPaymentMethod] = useState("payfast");
   const [billingSameAsShipping, setBillingSameAsShipping] = useState(true);
   const [deliveryMethod, setDeliveryMethod] = useState("ship");
 
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const shippingCost = shippingMethod === "standard" ? 160 : 380;
   const subtotal = totalPrice;
   const total = subtotal + shippingCost;
+
+  if (!isClient) {
+    return (
+      <div className="container py-12">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded mb-8 w-32"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-6">
+              <div className="h-64 bg-gray-200 rounded"></div>
+              <div className="h-64 bg-gray-200 rounded"></div>
+            </div>
+            <div className="h-96 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (items.length === 0) {
     return (
