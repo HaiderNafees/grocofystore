@@ -74,19 +74,19 @@ export default function Home() {
         >
           <HeroCarousel />
         </NoSSR>
-        <div className="container py-12">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-semibold tracking-wide">New in store</h2>
-          <Link href="/products" className="text-sm font-medium hover:underline">
+        <div className="container py-8 sm:py-12">
+        <div className="flex justify-between items-center mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-serif tracking-wide">New in store</h2>
+          <Link href="/products" className="text-sm font-medium hover:underline text-gray-600 hover:text-gray-900 transition-colors">
             View all
           </Link>
         </div>
         
         {loading ? (
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-5">
               {Array.from({ length: 10 }).map((_, i) => (
                 <div key={i} className="space-y-3">
-                  <Skeleton className="aspect-square" />
+                  <Skeleton className="aspect-square rounded-lg" />
                   <Skeleton className="h-4 w-3/4" />
                   <Skeleton className="h-5 w-1/2" />
                 </div>
@@ -95,11 +95,11 @@ export default function Home() {
         ) : (
           <>
             {/* Mobile horizontal scroll */}
-            <div className="lg:hidden -mx-4">
+            <div className="lg:hidden -mx-4 sm:-mx-6">
               <ScrollArea className="w-full whitespace-nowrap">
-                <div className="flex w-max space-x-3 px-4">
+                <div className="flex w-max space-x-4 sm:space-x-5 px-4 sm:px-6">
                   {newInStoreProducts.map((product) => (
-                    <div key={product.id} className="w-40 flex-shrink-0">
+                    <div key={product.id} className="w-40 sm:w-44 flex-shrink-0">
                       <ProductCard
                         product={product}
                         onView={() => handleProductView(product)}
@@ -112,7 +112,7 @@ export default function Home() {
             </div>
 
             {/* Desktop 5x2 grid */}
-            <div className="hidden lg:grid grid-cols-5 gap-4 md:gap-6">
+            <div className="hidden lg:grid grid-cols-5 gap-5 xl:gap-6">
               {newInStoreProducts.map((product) => (
                 <ProductCard
                   key={product.id}

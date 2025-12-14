@@ -17,16 +17,16 @@ const categories = [
 
 export function PopularCategories() {
   return (
-    <section className="py-4 sm:py-6">
+    <section className="py-6 sm:py-8">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <h2 className="text-lg sm:text-xl lg:text-2xl font-serif mb-3 sm:mb-4 text-center">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif mb-6 sm:mb-8 text-center">
           Popular Categories
         </h2>
       </div>
 
-      {/* Mobile: 2-column grid with 4 icons each */}
+      {/* Mobile: 2-column grid with modern cards */}
       <div className="block sm:hidden container px-4">
-        <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
+        <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
@@ -35,32 +35,37 @@ export function PopularCategories() {
               <Link
                 href={`/products?category=${encodeURIComponent(category.name)}`}
                 key={category.name}
-                className="flex flex-col items-center gap-1 group"
+                className="group"
               >
-                <div className="relative w-16 h-12 rounded-lg overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
-                  {image && (
-                    <Image
-                      src={image.imageUrl}
-                      alt={category.name}
-                      fill
-                      className="object-cover"
-                      sizes="48px"
-                      data-ai-hint={image.imageHint}
-                    />
-                  )}
+                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
+                  <div className="aspect-square relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
+                    {image && (
+                      <Image
+                        src={image.imageUrl}
+                        alt={category.name}
+                        fill
+                        className="object-cover p-4"
+                        sizes="120px"
+                        data-ai-hint={image.imageHint}
+                      />
+                    )}
+                  </div>
+                  <div className="p-3 text-center">
+                    <span className="text-xs sm:text-sm font-medium text-gray-800 group-hover:text-primary transition-colors">
+                      {category.name}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-xs font-medium text-center whitespace-normal">
-                  {category.name}
-                </span>
               </Link>
             );
           })}
         </div>
       </div>
 
-      {/* Tablet: 4x2 grid with medium icons */}
+      {/* Tablet: 4x2 grid with medium cards */}
       <div className="hidden sm:block lg:hidden container px-6">
-        <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
+        <div className="grid grid-cols-4 gap-5 max-w-3xl mx-auto">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
@@ -69,32 +74,37 @@ export function PopularCategories() {
               <Link
                 href={`/products?category=${encodeURIComponent(category.name)}`}
                 key={category.name}
-                className="flex flex-col items-center gap-2 group"
+                className="group"
               >
-                <div className="relative w-20 h-16 rounded-lg overflow-hidden border border-gray-200 group-hover:border-primary transition-all duration-300">
-                  {image && (
-                    <Image
-                      src={image.imageUrl}
-                      alt={category.name}
-                      fill
-                      className="object-cover"
-                      sizes="56px"
-                      data-ai-hint={image.imageHint}
-                    />
-                  )}
+                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
+                  <div className="aspect-square relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
+                    {image && (
+                      <Image
+                        src={image.imageUrl}
+                        alt={category.name}
+                        fill
+                        className="object-cover p-5"
+                        sizes="160px"
+                        data-ai-hint={image.imageHint}
+                      />
+                    )}
+                  </div>
+                  <div className="p-3 text-center">
+                    <span className="text-xs font-medium text-gray-800 group-hover:text-primary transition-colors">
+                      {category.name}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-xs font-medium text-center whitespace-normal">
-                  {category.name}
-                </span>
               </Link>
             );
           })}
         </div>
       </div>
 
-      {/* Desktop: 4x2 grid with large icons */}
+      {/* Desktop: 4x2 grid with large cards */}
       <div className="hidden lg:block container px-8">
-        <div className="grid grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-4 gap-6 max-w-5xl mx-auto">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
@@ -103,23 +113,28 @@ export function PopularCategories() {
               <Link
                 href={`/products?category=${encodeURIComponent(category.name)}`}
                 key={category.name}
-                className="flex flex-col items-center gap-3 group"
+                className="group"
               >
-                <div className="relative w-28 h-20 rounded-lg overflow-hidden border-2 border-gray-200 group-hover:border-primary transition-all duration-300">
-                  {image && (
-                    <Image
-                      src={image.imageUrl}
-                      alt={category.name}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                      data-ai-hint={image.imageHint}
-                    />
-                  )}
+                <div className="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20">
+                  <div className="aspect-square relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
+                    {image && (
+                      <Image
+                        src={image.imageUrl}
+                        alt={category.name}
+                        fill
+                        className="object-cover p-6"
+                        sizes="200px"
+                        data-ai-hint={image.imageHint}
+                      />
+                    )}
+                  </div>
+                  <div className="p-4 text-center">
+                    <span className="text-sm font-medium text-gray-800 group-hover:text-primary transition-colors">
+                      {category.name}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-sm font-medium text-center whitespace-normal">
-                  {category.name}
-                </span>
               </Link>
             );
           })}
