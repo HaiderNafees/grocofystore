@@ -50,12 +50,12 @@ export default function AllProductsPage() {
           </p>
         </div>
         {loading ? (
-            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
                 {Array.from({ length: 10 }).map((_, i) => (
-                    <div key={i} className="space-y-2">
-                        <Skeleton className="aspect-[1/1]" />
+                    <div key={i} className="space-y-3">
+                        <Skeleton className="aspect-square" />
                         <Skeleton className="h-4 w-3/4" />
-                        <Skeleton className="h-6 w-1/2" />
+                        <Skeleton className="h-5 w-1/2" />
                     </div>
                 ))}
             </div>
@@ -64,7 +64,7 @@ export default function AllProductsPage() {
             <p className="text-muted-foreground">No products found in this category.</p>
           </div>
         ) : (
-            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
             {filteredProducts.map((product) => (
                 <ProductCard
                 key={product.id}

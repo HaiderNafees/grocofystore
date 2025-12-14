@@ -73,10 +73,16 @@
       "imageHint": "gourmet platter"
     },
     {
-      "id": "category-drinkable",
-      "description": "A variety of colorful drinks",
-      "imageUrl": "https://images.unsplash.com/photo-1681579289844-cc57e4d60e10?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb2xvcmZ1bCUyMGRyaW5rc3xlbnwwfHx8fDE3NjU1MTUzODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "colorful drinks"
+      "id": "category-snacks",
+      "description": "A variety of snack foods and chips",
+      "imageUrl": "https://images.unsplash.com/photo-1504855101244-34edfbd4b861?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzbmFja3MlMjBjaG9jb2xhdGV8ZW58MHx8fHwxNzY1NTEyMjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "snacks chips"
+    },
+    {
+      "id": "category-biscuits",
+      "description": "A collection of biscuits and cookies",
+      "imageUrl": "https://images.unsplash.com/photo-1661416958387-00c93ada91ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0dWMlMjBiaXNjdWl0fGVufDB8fHx8MTc2NTUxNTExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "biscuits cookies"
     },
     {
       "id": "promo-gift-basket",

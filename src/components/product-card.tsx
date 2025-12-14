@@ -43,41 +43,41 @@ export function ProductCard({ product, onView }: ProductCardProps) {
   };
   
   return (
-    <Card className="group overflow-hidden relative border-none shadow-none rounded-none transition-all duration-300">
+    <Card className="group overflow-hidden relative border border-gray-200 shadow-sm rounded-lg transition-all duration-300 hover:shadow-md">
       <CardContent className="p-0">
         <Link href={`/products/${product.id}`}>
-            <div className="relative aspect-[1/1] overflow-hidden bg-gray-100">
+            <div className="relative aspect-square overflow-hidden bg-gray-50">
                 <Image
                 src={product.image}
                 alt={product.name}
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
-                className="object-contain transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
+                className="object-contain transition-transform duration-300 group-hover:scale-105 p-4"
                 data-ai-hint={product.imageHint}
                 />
                 {product.isNew && (
-                    <Badge variant="secondary" className="absolute bottom-2 left-2 bg-white text-black rounded-md text-xs">NEW</Badge>
+                    <Badge variant="secondary" className="absolute bottom-3 left-3 bg-white text-black rounded-md text-xs font-semibold px-2 py-1 shadow-sm">NEW</Badge>
                 )}
                 {product.soldOut && (
-                    <Badge variant="secondary" className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-yellow-500 text-black rounded-md text-xs">SOLD OUT</Badge>
+                    <Badge variant="secondary" className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-yellow-500 text-black rounded-md text-xs font-semibold px-2 py-1 shadow-sm">SOLD OUT</Badge>
                 )}
                 {!product.soldOut && (
-                    <div className="absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                        <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500" onClick={handleViewClick}>
+                    <div className="absolute top-3 right-3 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                        <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500 shadow-sm" onClick={handleViewClick}>
                             <Search className="h-4 w-4" />
                         </Button>
-                    <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500" onClick={handleAddToCart}>
+                    <Button size="icon" variant="secondary" className="rounded-full h-8 w-8 bg-orange-400 hover:bg-orange-500 shadow-sm" onClick={handleAddToCart}>
                         <Plus className="h-4 w-4" />
                     </Button>
                     </div>
                 )}
             </div>
         </Link>
-        <div className="p-4 text-left">
+        <div className="p-4 text-left space-y-2">
           <Link href={`/products/${product.id}`} className="hover:underline">
-            <h3 className="font-sans text-base text-muted-foreground">{product.name}</h3>
+            <h3 className="font-sans text-sm text-gray-700 line-clamp-2 leading-tight">{product.name}</h3>
           </Link>
-          <p className="text-lg font-semibold mt-1">Rs. {product.price.toLocaleString()}</p>
+          <p className="text-base font-bold text-gray-900">Rs. {product.price.toLocaleString()}</p>
         </div>
       </CardContent>
     </Card>

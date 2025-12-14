@@ -16,7 +16,7 @@ export function BestSellerSection({ onViewProduct }: BestSellerSectionProps) {
           View all
         </Link>
       </div>
-      <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
         {bestSellers.map((product) => (
           <ProductCard key={product.id} product={product} onView={onViewProduct} />
         ))}

@@ -60,12 +60,12 @@ export default function Home() {
         </div>
         
         {loading ? (
-            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="space-y-2">
-                  <Skeleton className="aspect-[1/1]" />
+                <div key={i} className="space-y-3">
+                  <Skeleton className="aspect-square" />
                   <Skeleton className="h-4 w-3/4" />
-                  <Skeleton className="h-6 w-1/2" />
+                  <Skeleton className="h-5 w-1/2" />
                 </div>
               ))}
             </div>
@@ -74,7 +74,7 @@ export default function Home() {
             {/* Mobile horizontal scroll */}
             <div className="lg:hidden -mx-4">
               <ScrollArea className="w-full whitespace-nowrap">
-                <div className="flex w-max space-x-4 px-4">
+                <div className="flex w-max space-x-3 px-4">
                   {newInStoreProducts.map((product) => (
                     <div key={product.id} className="w-40 flex-shrink-0">
                       <ProductCard
@@ -89,7 +89,7 @@ export default function Home() {
             </div>
 
             {/* Desktop grid */}
-            <div className="hidden lg:grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="hidden lg:grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
               {newInStoreProducts.slice(0, 5).map((product) => (
                 <ProductCard
                   key={product.id}

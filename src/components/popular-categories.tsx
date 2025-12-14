@@ -6,14 +6,8 @@ import { ScrollArea, ScrollBar } from './ui/scroll-area';
 
 const categories = [
   { name: 'Eatables', imageId: 'category-eatables' },
-  { name: 'Personal Care', imageId: 'category-personal-care' },
-  { name: 'Beauty', imageId: 'category-beauty' },
-  { name: 'Life Style', imageId: 'category-lifestyle' },
-  { name: 'Altitude', imageId: 'category-altitude' },
-  { name: 'Smoking', imageId: 'category-smoking' },
-  { name: 'Gifts', imageId: 'category-gifts' },
-  { name: 'Perfumes', imageId: 'category-perfumes' },
-  { name: 'Delicacies', imageId: 'category-delicacies' },
+  { name: 'Snacks', imageId: 'category-snacks' },
+  { name: 'Biscuits', imageId: 'category-biscuits' },
   { name: 'Drinkable', imageId: 'category-drinkable' },
 ];
 
@@ -26,10 +20,10 @@ export function PopularCategories() {
         </h2>
       </div>
 
-      {/* Mobile: Vertical scrolling grid */}
+      {/* Mobile: Horizontal scroll grid like reference image */}
       <div className="block lg:hidden">
-        <div className="px-4 py-6 max-h-96 overflow-y-auto">
-          <div className="grid grid-cols-2 gap-6">
+        <ScrollArea className="w-full">
+          <div className="flex space-x-4 px-4 py-6">
             {categories.map((category) => {
               const image = PlaceHolderImages.find(
                 (img) => img.id === category.imageId
@@ -38,16 +32,16 @@ export function PopularCategories() {
                 <Link
                   href={`/products?category=${encodeURIComponent(category.name)}`}
                   key={category.name}
-                  className="group flex flex-col items-center gap-3"
+                  className="flex flex-col items-center gap-2 flex-shrink-0 w-24"
                 >
-                  <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-gray-200 hover:border-primary transition-all duration-300">
                     {image && (
                       <Image
                         src={image.imageUrl}
                         alt={category.name}
                         fill
                         className="object-cover"
-                        sizes="40vw"
+                        sizes="80px"
                         data-ai-hint={image.imageHint}
                       />
                     )}
@@ -59,12 +53,13 @@ export function PopularCategories() {
               );
             })}
           </div>
-        </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
       
       {/* Desktop: Centered grid */}
       <div className="hidden lg:block container">
-        <div className="grid grid-cols-5 gap-x-6 gap-y-8 px-12">
+        <div className="grid grid-cols-4 gap-x-8 gap-y-8 px-12 justify-center max-w-4xl mx-auto">
           {categories.map((category) => {
             const image = PlaceHolderImages.find(
               (img) => img.id === category.imageId
@@ -75,7 +70,7 @@ export function PopularCategories() {
                 key={category.name}
                 className="group flex flex-col items-center gap-3"
               >
-                <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300">
+                <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-primary transition-all duration-300">
                   {image && (
                     <Image
                       src={image.imageUrl}

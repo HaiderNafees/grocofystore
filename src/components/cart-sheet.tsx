@@ -49,7 +49,7 @@ export function CartSheet({ children }: { children: ReactNode }) {
                     <div className="flex flex-col gap-1">
                       <p className="font-medium">{item.name}</p>
                       <p className="text-sm text-muted-foreground">
-                        ${item.price.toFixed(2)}
+                        Rs. {item.price.toLocaleString()}
                       </p>
                       <div className="flex items-center gap-2 pt-2">
                           <Button
@@ -89,12 +89,14 @@ export function CartSheet({ children }: { children: ReactNode }) {
               <div className="flex w-full flex-col gap-4">
                 <div className="flex justify-between text-base font-medium">
                   <span>Subtotal</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>Rs. {totalPrice.toLocaleString()}</span>
                 </div>
                 <p className="text-xs text-muted-foreground">Taxes and shipping calculated at checkout.</p>
-                <Button size="lg" className="w-full rounded-none uppercase tracking-wider">
-                  Checkout
-                </Button>
+                <Link href="/checkout">
+                  <Button size="lg" className="w-full rounded-none uppercase tracking-wider">
+                    Proceed to Checkout
+                  </Button>
+                </Link>
               </div>
             </SheetFooter>
           </>
