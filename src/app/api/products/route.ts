@@ -3,7 +3,13 @@ import { products as initialProducts } from '@/lib/data';
 
 export async function GET() {
   try {
-    return NextResponse.json(initialProducts);
+    return NextResponse.json(initialProducts, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to fetch products' },
