@@ -1,7 +1,6 @@
 
 'use client';
 
-<<<<<<< HEAD
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import type { Product } from '@/lib/types';
 
