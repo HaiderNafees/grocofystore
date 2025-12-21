@@ -47,13 +47,17 @@ export function ProductCard({ product, onView }: ProductCardProps) {
       <CardContent className="p-0">
         <Link href={`/products/${product.id}`}>
             <div className="relative aspect-square overflow-hidden bg-gray-50">
-                <Image
+                <img
                 src={product.image}
                 alt={product.name}
-                fill
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
-                className="object-contain transition-transform duration-300 group-hover:scale-105 p-4"
+                className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
                 data-ai-hint={product.imageHint}
+                onError={(e) => {
+                  console.error('Product card image failed to load:', product.image);
+                  // Fallback to coffee image
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/coffee.jpg';
+                }}
                 />
                 {product.isNew && (
                     <Badge variant="secondary" className="absolute bottom-3 left-3 bg-white text-black rounded-md text-xs font-semibold px-2 py-1 shadow-sm">NEW</Badge>

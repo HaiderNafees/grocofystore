@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { CartProvider } from '@/context/cart-context';
 import { AuthProvider } from '@/context/auth-context';
 import { ProductProvider } from '@/context/product-context';
+import { BannerProvider } from '@/context/banner-context';
 import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -53,14 +54,16 @@ export default function RootLayout({
       >
         <AuthProvider>
           <ProductProvider>
-            <CartProvider>
-              <div className="relative flex min-h-screen flex-col bg-background">
-                <Header />
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </div>
-              <Toaster />
-            </CartProvider>
+            <BannerProvider>
+              <CartProvider>
+                <div className="relative flex min-h-screen flex-col bg-background">
+                  <Header />
+                  <main className="flex-1">{children}</main>
+                  <Footer />
+                </div>
+                <Toaster />
+              </CartProvider>
+            </BannerProvider>
           </ProductProvider>
         </AuthProvider>
       </body>

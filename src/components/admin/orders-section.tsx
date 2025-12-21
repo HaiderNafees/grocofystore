@@ -32,67 +32,7 @@ interface Order {
   };
 }
 
-const mockOrders: Order[] = [
-  {
-    id: 'ORD-001',
-    customerName: 'John Doe',
-    customerEmail: 'john.doe@email.com',
-    customerPhone: '+1234567890',
-    items: [
-      { id: '1', name: 'Premium Coffee Beans', quantity: 2, price: 24.99 },
-      { id: '2', name: 'Chocolate Cookies', quantity: 3, price: 12.99 }
-    ],
-    totalAmount: 75.95,
-    status: 'pending',
-    orderDate: '2024-12-20',
-    shippingAddress: {
-      street: '123 Main St',
-      city: 'New York',
-      state: 'NY',
-      zipCode: '10001',
-      country: 'USA'
-    }
-  },
-  {
-    id: 'ORD-002',
-    customerName: 'Jane Smith',
-    customerEmail: 'jane.smith@email.com',
-    customerPhone: '+0987654321',
-    items: [
-      { id: '3', name: 'Organic Tea Set', quantity: 1, price: 45.99 },
-      { id: '4', name: 'Honey Jar', quantity: 2, price: 8.99 }
-    ],
-    totalAmount: 63.97,
-    status: 'processing',
-    orderDate: '2024-12-19',
-    shippingAddress: {
-      street: '456 Oak Ave',
-      city: 'Los Angeles',
-      state: 'CA',
-      zipCode: '90001',
-      country: 'USA'
-    }
-  },
-  {
-    id: 'ORD-003',
-    customerName: 'Bob Johnson',
-    customerEmail: 'bob.johnson@email.com',
-    customerPhone: '+1122334455',
-    items: [
-      { id: '5', name: 'Gift Basket Premium', quantity: 1, price: 89.99 }
-    ],
-    totalAmount: 89.99,
-    status: 'shipped',
-    orderDate: '2024-12-18',
-    shippingAddress: {
-      street: '789 Pine Rd',
-      city: 'Chicago',
-      state: 'IL',
-      zipCode: '60007',
-      country: 'USA'
-    }
-  }
-];
+const mockOrders: Order[] = [];
 
 const statusColors = {
   pending: 'bg-yellow-100 text-yellow-800',

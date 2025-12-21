@@ -12,7 +12,7 @@ import { FeaturedBrands } from "@/components/featured-brands";
 import { AboutUsSection } from "@/components/about-us-section";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { ProductDetail } from "@/components/product-detail";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import type { Product } from "@/lib/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -136,6 +136,9 @@ export default function Home() {
         <>
           <Dialog open={!!selectedProduct} onOpenChange={(open: boolean) => !open && handleCloseDialog()}>
             <DialogContent className="max-w-4xl p-0">
+              <DialogTitle className="sr-only">
+                {selectedProduct?.name || 'Product Details'}
+              </DialogTitle>
               {selectedProduct && <ProductDetail product={selectedProduct} />}
             </DialogContent>
           </Dialog>

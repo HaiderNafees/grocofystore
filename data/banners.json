@@ -1,0 +1,60 @@
+[
+  {
+    "id": "promo-main",
+    "title": "Special Offers",
+    "subtitle": "Amazing deals on your favorite products",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGtlDheJZ5eLJMAzbiblEQWf7FrOIllGV4MA&s",
+    "imageHint": "main promotional banner",
+    "buttonText": "Shop Now",
+    "buttonLink": "/products",
+    "backgroundColor": "#F5EBE0",
+    "textColor": "#000000",
+    "position": "promo",
+    "isActive": true,
+    "sortOrder": 1
+  },
+  {
+    "id": "grid-coffee",
+    "title": "COFFEE ESSENTIALS FOR EVERY COFFEE LOVER",
+    "image": "/coffee.jpg",
+    "imageHint": "coffee essentials banner",
+    "buttonText": "Shop Now",
+    "buttonLink": "/products?category=Drinkable",
+    "position": "grid",
+    "isActive": true,
+    "sortOrder": 1
+  },
+  {
+    "id": "grid-wedding",
+    "title": "WEDDING ESSENTIALS",
+    "image": "/weeding.jpg",
+    "imageHint": "wedding essentials banner",
+    "buttonText": "Shop Now",
+    "buttonLink": "/products?category=Eatables",
+    "position": "grid",
+    "isActive": true,
+    "sortOrder": 2
+  },
+  {
+    "id": "grid-shampoo",
+    "title": "EXPLORE THE RANGE OF DRY SHAMPOOS",
+    "image": "/Customized_gifts.jpg",
+    "imageHint": "shampoo range banner",
+    "buttonText": "Shop Now",
+    "buttonLink": "/products?category=Personal Care",
+    "position": "grid",
+    "isActive": true,
+    "sortOrder": 3
+  },
+  {
+    "id": "grid-watch",
+    "title": "adidas",
+    "image": "/pringles-cheesy-cheese.jpg",
+    "imageHint": "adidas products banner",
+    "buttonText": "Shop Now",
+    "buttonLink": "/products?category=Snacks",
+    "position": "grid",
+    "isActive": true,
+    "sortOrder": 4
+  }
+]

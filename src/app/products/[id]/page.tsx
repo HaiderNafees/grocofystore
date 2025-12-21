@@ -89,12 +89,17 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     <div className="container py-12">
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="relative aspect-square bg-gray-100 rounded-lg">
-          <Image
+          <img
             src={product.image}
             alt={product.name}
-            fill
-            className="object-contain"
+            className="w-full h-full object-contain rounded-lg"
             data-ai-hint={product.imageHint}
+            onError={(e) => {
+              console.error('Image failed to load:', product.image);
+              // Fallback to a placeholder image
+              const target = e.target as HTMLImageElement;
+              target.src = '/logo.png';
+            }}
           />
            {product.isNew && (
             <div className="absolute top-4 left-4 bg-white text-black px-2 py-1 rounded-md text-xs font-semibold">NEW</div>

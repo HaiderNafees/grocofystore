@@ -25,3 +25,18 @@ export interface CartItem {
   image: string;
   quantity: number;
 }
+
+export interface Banner {
+  id: string;
+  title: string;
+  subtitle?: string;
+  image: string;
+  imageHint?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  backgroundColor?: string;
+  textColor?: string;
+  position: 'hero' | 'promo' | 'grid';
+  isActive: boolean;
+  sortOrder: number;
+}

@@ -5,8 +5,11 @@ import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/use-auth';
 import { useProducts } from '@/hooks/use-products';
+import { useBanners } from '@/hooks/use-banners';
 import { ProductForm } from '@/components/admin/product-form';
 import { ProductList } from '@/components/admin/product-list';
+import { BannerForm } from '@/components/admin/banner-form';
+import { BannerList } from '@/components/admin/banner-list';
 import { OrdersSection } from '@/components/admin/orders-section';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -23,6 +26,7 @@ import { Button } from '@/components/ui/button';
 export default function AdminPage() {
   const { user, loading, logout } = useAuth();
   const { products, loading: productsLoading } = useProducts();
+  const { banners, loading: bannersLoading, refreshBanners } = useBanners();
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
@@ -77,10 +81,11 @@ export default function AdminPage() {
         </Button>
       </div>
       <Tabs defaultValue="products" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-6 sm:mb-8">
+        <TabsList className="grid w-full grid-cols-4 mb-6 sm:mb-8">
           <TabsTrigger value="products" className="text-sm sm:text-base">Manage Products</TabsTrigger>
-          <TabsTrigger value="add" className="text-sm sm:text-base">Add New Product</TabsTrigger>
-          <TabsTrigger value="orders" className="text-sm sm:text-base">Manage Orders</TabsTrigger>
+          <TabsTrigger value="banners" className="text-sm sm:text-base">Manage Banners</TabsTrigger>
+          <TabsTrigger value="add-product" className="text-sm sm:text-base">Add Product</TabsTrigger>
+          <TabsTrigger value="orders" className="text-sm sm:text-base">Orders</TabsTrigger>
         </TabsList>
         <TabsContent value="products">
           <Card className="w-full">
@@ -110,7 +115,21 @@ export default function AdminPage() {
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="add">
+        <TabsContent value="banners">
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle className="text-lg sm:text-xl">Manage Banners</CardTitle>
+            </CardHeader>
+            <CardContent>
+              {bannersLoading ? (
+                <p>Loading banners...</p>
+              ) : (
+                <BannerList banners={banners} onBannerUpdate={refreshBanners} />
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="add-product">
           <Card>
             <CardHeader>
               <CardTitle>Add New Product</CardTitle>

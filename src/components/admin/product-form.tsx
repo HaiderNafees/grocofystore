@@ -34,10 +34,15 @@ const formSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   price: z.coerce.number().min(0, 'Price must be a positive number'),
   category: z.string().min(1, 'Category is required'),
-  image: z.string().optional(), // Allow any string (URL or data URL)
+  image: z.string().optional(),
   imageHint: z.string().optional(),
   isNew: z.boolean().optional(),
   soldOut: z.boolean().optional(),
+  packOptions: z.array(z.object({
+    quantity: z.number().min(1),
+    price: z.number().min(0),
+    label: z.string()
+  })).optional(),
 });
 
 type ProductFormData = z.infer<typeof formSchema>;
@@ -61,6 +66,12 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
       imageHint: '',
       isNew: false,
       soldOut: false,
+      packOptions: [
+        { quantity: 1, price: 0, label: 'Single' },
+        { quantity: 3, price: 0, label: 'Pack of 3' },
+        { quantity: 6, price: 0, label: 'Pack of 6' },
+        { quantity: 12, price: 0, label: 'Pack of 12' }
+      ]
     },
   });
 
@@ -76,6 +87,12 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
         imageHint: '',
         isNew: false,
         soldOut: false,
+        packOptions: [
+          { quantity: 1, price: 0, label: 'Single' },
+          { quantity: 3, price: 0, label: 'Pack of 3' },
+          { quantity: 6, price: 0, label: 'Pack of 6' },
+          { quantity: 12, price: 0, label: 'Pack of 12' }
+        ]
       });
     }
   }, [productToEdit, form]);
@@ -187,6 +204,38 @@ export function ProductForm({ productToEdit, onFinishEditing }: ProductFormProps
                 <FormLabel className="text-sm font-medium">Image Hint (Optional)</FormLabel>
                 <FormControl>
                   <Input placeholder="product image" {...field} className="w-full" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="packOptions"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-medium">Pack Pricing</FormLabel>
+                <FormControl>
+                  <div className="space-y-3">
+                    {field.value?.map((option, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <span className="text-sm font-medium w-20">{option.label}:</span>
+                        <Input
+                          type="number"
+                          placeholder="Price"
+                          value={option.price}
+                          onChange={(e) => {
+                            const newOptions = [...(field.value || [])];
+                            newOptions[index] = { ...option, price: parseFloat(e.target.value) || 0 };
+                            field.onChange(newOptions);
+                          }}
+                          className="flex-1"
+                        />
+                        <span className="text-sm text-gray-500">Rs.</span>
+                      </div>
+                    ))}
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
