@@ -99,7 +99,7 @@
     {
       "id": "promo-coffee",
       "description": "Coffee essentials including a coffee machine, syrups, and beans",
-      "imageUrl": "https://images.unsplash.com/photo-1511920183313-9b37807a944e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2ZmZWUlMjBlc3NlbnRpYWxzfGVufDB8fHx8MTc2NTU5NjI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://iili.io/fMdjVCG.webp",
       "imageHint": "coffee essentials"
     },
     {
@@ -111,61 +111,61 @@
     {
       "id": "promo-shampoo",
       "description": "A range of dry shampoos on a bathroom counter",
-      "imageUrl": "https://images.unsplash.com/photo-1563298223-28956a6e26f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxEUlklMjBTSEFNUE9PU3xlbnwwfHx8fDE3NjU1OTYyNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://iili.io/fMKvCuf.webp0",
       "imageHint": "dry shampoo"
     },
     {
       "id": "promo-watch",
       "description": "An Adidas watch with a dark background",
-      "imageUrl": "https://images.unsplash.com/photo-1620710632225-059247275d31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZGlkYXMlMjB3YXRjaHxlbnwwfHx8fDE3NjU1OTYyNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://iili.io/fMdhX5P.webp",
       "imageHint": "adidas watch"
     },
     {
       "id": "brand-maarc",
       "description": "Maarc brand logo",
-      "imageUrl": "https://picsum.photos/seed/maarc-logoabay/150/150x150/300/300.jpg?v=1630232537",
+      "imageUrl": "https://iili.io/fMKrE2S.png",
       "imageHint": "maarc logo"
     },
     {
       "id": "brand-mecarmy",
       "description": "MecArmy brand logo",
-      "imageUrl": "https://picsum.photos/seed/mecarmyabay/300/150x150/300/150.jpg?v=1630232537",
+      "imageUrl": "https://iili.io/fMKPZ3Q.jpg",
       "imageHint": "mecarmy logo"
     },
     {
       "id": "brand-michael-kors",
       "description": "Michael Kors brand logo",
-      "imageUrl": "https://picsum.photos/seed/michael-korsabay/300/150x150/300/150.jpg?v=1630232537",
+      "imageUrl": "https://iili.io/fMKtMv4.png",
       "imageHint": "michael kors logo"
     },
     {
       "id": "brand-mileeven",
       "description": "Mileeven brand logo",
-      "imageUrl": "https://picsum.photos/seed/mileevenabay/300/150x150/300/150.jpg?v=1630232537",
+      "imageUrl": "https://iili.io/fMKmru4.png",
       "imageHint": "mileeven logo"
     },
     {
       "id": "brand-marks-spencer",
       "description": "Marks & Spencer brand logo",
-      "imageUrl": "https://picsum.photos/seed/marks-spencerabay/300/150x150/300/150.jpg?v=1630232537",
+      "imageUrl": "https://iili.io/fMKpm0X.png",
       "imageHint": "marks spencer logo"
     },
     {
       "id": "brand-nestle",
       "description": "Nestle brand logo",
-      "imageUrl": "https://picsum.photos/seed/nestleabay/300/150x150/300/150.jpg?v=1630232537",
+      "imageUrl": "https://iili.io/fMK7YcF.png",
       "imageHint": "nestle logo"
     },
     {
       "id": "brand-neutrogena",
       "description": "Neutrogena brand logo",
-      "imageUrl": "https://picsum.photos/seed/neutrogenaabay/300/150x150/300/150.jpg?v=1630232537",
+      "imageUrl": "https://iili.io/fMf9Tan.png",
       "imageHint": "neutrogena logo"
     },
     {
       "id": "about-us-banner",
       "description": "A sketch of a store front with the text Shams, home to a connoisseur",
-      "imageUrl": "https://images.unsplash.com/photo-1620353982062-6a848a0635e1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==",
+      "imageUrl": "https://iili.io/fMKUWc7.webp",
       "imageHint": "storefront sketch"
     },
     {

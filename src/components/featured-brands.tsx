@@ -46,7 +46,7 @@ export function FeaturedBrands() {
               >
                 <Link href="#">
                   <div className="p-4 bg-gray-100 rounded-lg flex items-center justify-center h-24 group">
-                    <div className="relative h-12 w-full">
+                    <div className="relative h-16 w-full">
                       <Image
                         src={image.imageUrl}
                         alt={image.description}
