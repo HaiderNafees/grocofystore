@@ -150,7 +150,7 @@ export function OrdersSection() {
                     <TableCell className="font-medium">{order.id}</TableCell>
                     <TableCell>{order.customerName}</TableCell>
                     <TableCell className="max-w-[200px] truncate">{order.customerEmail}</TableCell>
-                    <TableCell>${order.totalAmount.toFixed(2)}</TableCell>
+                    <TableCell>Rs. {order.totalAmount.toLocaleString()}</TableCell>
                     <TableCell>{order.orderDate}</TableCell>
                     <TableCell>
                       <Badge className={statusColors[order.status]}>
@@ -201,14 +201,14 @@ export function OrdersSection() {
                                           <p className="font-medium">{item.name}</p>
                                           <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
                                         </div>
-                                        <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                                        <p className="font-medium">Rs. {(item.price * item.quantity).toLocaleString()}</p>
                                       </div>
                                     ))}
                                   </div>
                                   <div className="mt-4 pt-4 border-t">
                                     <div className="flex justify-between items-center">
                                       <span className="font-semibold">Total Amount:</span>
-                                      <span className="font-bold text-lg">${selectedOrder.totalAmount.toFixed(2)}</span>
+                                      <span className="font-bold text-lg">Rs. {selectedOrder.totalAmount.toLocaleString()}</span>
                                     </div>
                                   </div>
                                 </div>

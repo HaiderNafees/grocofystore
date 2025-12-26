@@ -1,0 +1,7 @@
+{
+  "name": "grocofy-backend",
+  "version": "1.0.0",
+  "description": "Grocofy eCommerce Backend API",
+  "private": true,
+  "main": "index.js"
+}

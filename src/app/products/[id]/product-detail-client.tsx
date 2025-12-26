@@ -86,7 +86,7 @@ export function ProductDetailClient({ productId }: { productId: string }) {
         <div className="space-y-6">
           <div>
             <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
-            <p className="text-2xl font-semibold">${selectedPack.price}</p>
+            <p className="text-2xl font-semibold">Rs. {selectedPack.price.toLocaleString()}</p>
           </div>
 
           <p className="text-gray-600">{product.description || 'No description available'}</p>
